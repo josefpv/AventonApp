@@ -1,0 +1,7 @@
+{
+  "name": "AventonApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
