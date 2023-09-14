@@ -1,6 +1,15 @@
+:root {
+  --ion-color-primary: #ffffff;
+  --ion-color-secondary: #006600;
+  --ion-color-secondary-rgb: 0, 102, 0;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #005a00;
+  --ion-color-secondary-tint: #1a751a;
+}
+
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -24,4 +33,23 @@
 
 #container a {
   text-decoration: none;
+}
+
+.initial-bg-screen {
+  --background: linear-gradient(
+    197deg,
+    rgb(84, 60, 192) 13.5%,
+    rgb(10, 44, 123) 33.33%,
+    rgb(295, 104, 208) 100%
+  ) !important;
+}
+
+ion-button {
+  --border-color: #ffffff;
+}
+
+capacitor-google-map {
+  display: inline-block;
+  width: 275px;
+  height: 400px;
 }

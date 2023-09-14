@@ -1,20 +1,59 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-title> Blank </ion-title>
+  </ion-toolbar> -->
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="initial-bg-screen">
+  <!--  <ion-header collapse="condense">
+    <ion-toolbar> </ion-toolbar>
+  </ion-header> -->
 
+  <ion-grid>
+    <ion-row
+      style="padding-left: 50px; padding-right: 50px; height: 100vh"
+      class="ion-align-items-center"
+    >
+      <ion-col size="12">
+        <ion-text>
+          <h4 style="color: #ffffff; text-align: center; padding-top: 80px">
+            ¡Que bueno que estés aqui!
+          </h4>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-img
+          src="assets/aventon_app_logo.png"
+          alt="The Wisconsin State Capitol building in Madison, WI at night"
+        ></ion-img>
+      </ion-col>
+      <ion-col size="12">
+        <ion-input
+          label="Email"
+          labelPlacement="stacked"
+          placeholder="Ingrese su email institucional"
+          style="color: #ffffff"
+        ></ion-input>
+        <ion-input
+          label="Contraseña"
+          labelPlacement="stacked"
+          placeholder="Ingrese su contraseña"
+          style="color: #ffffff"
+        ></ion-input>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button
+          style="color: #ffffff"
+          size="default"
+          fill="outline"
+          expand="block"
+          >Ingresar
+          <ion-icon name="log-in-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <capacitor-google-map id="map"></capacitor-google-map>
   </div>
 </ion-content>
