@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="--background">
+    <ion-title>Registro Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">registro</ion-title>
+    </ion-toolbar>
+    
+  </ion-header>
+  <ion-grid>
+    <ion-row> 
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-input label="Nombre"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-input label="Apellido" placeholder=""></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-input label="Direccion" value=""></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-input label="Telefono" value="" ></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-input label="Correo Institucional" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+          <ion-input label= "Fecha de nacimiento" ><ion-datetime></ion-datetime></ion-input>
+          </ion-item>
+          <ion-button>Guardar</ion-button> 
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

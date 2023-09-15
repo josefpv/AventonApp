@@ -74,11 +74,29 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+/** Colores registro **/
+  --ion-color-registro: #1117d0;
+	--ion-color-registro-rgb: 17,23,208;
+	--ion-color-registro-contrast: #ffffff;
+	--ion-color-registro-contrast-rgb: 255,255,255;
+	--ion-color-registro-shade: #0f14b7;
+	--ion-color-registro-tint: #292ed5;
+  /** color total **/
+ --background: linear-gradient(
+    197deg,
+    rgb(84, 60, 192) 13.5%,
+    rgb(10, 44, 123) 33.33%,
+    rgb(295, 104, 208) 100%
+  )
+
 }
 
-@media (prefers-color-scheme: dark) {
+ /** Colores registro **/
+
+@media (prefers-color-scheme: light) {
   /*
-   * Dark Colors
+   * light Colors
    * -------------------------------------------
    */
 
