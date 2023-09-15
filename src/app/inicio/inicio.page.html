@@ -1,0 +1,217 @@
+<ion-header [translucent]="true">
+  <!--   <ion-toolbar>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header
+    collapse="condense"
+    style="
+      background-color: blueviolet;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      height: 120px;
+    "
+  >
+    <ion-grid>
+      <ion-row
+        style="padding-left: 10px; padding-right: 10px; padding-top: 20px"
+      >
+        <ion-col size="2">
+          <ion-avatar>
+            <img
+              alt="Silhouette of a person's head"
+              src="https://ionicframework.com/docs/img/demos/avatar.svg"
+            />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="10">
+          <ion-title size="large" style="color: #ffffff">Hola, José</ion-title>
+        </ion-col>
+        <ion-col size="12">
+          <ion-text style="font-size: 12px; color: #ffffff">
+            Bienvenido de vuelta...
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-header>
+  <ion-grid>
+    <ion-row style="padding-top: 20px fondoModal">
+      <ion-col size="12">
+        <ion-text style="font-weight: bold">BUSCAR VIAJE</ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-searchbar placeholder="¿A dondé quiere ir?"></ion-searchbar>
+      </ion-col>
+      <ion-col size="12" style="font-weight: bold">
+        <ion-text>ÚLTIMAS ACTIVIDADES</ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card style="background-color: blueviolet; color: #ffffff">
+          <ion-card-header>
+            <ion-card-title style="color: #ffffff">
+              <ion-icon name="time-outline"></ion-icon>
+              Viaje Solicitado</ion-card-title
+            >
+            <ion-card-subtitle style="color: #ffffff"
+              >Armando Moock 5312</ion-card-subtitle
+            >
+          </ion-card-header>
+
+          <ion-card-content>
+            Viaje con destino a Armando Moock 5312 fue solicitado y esta a la
+            espera de la confirmación por el conductor.
+          </ion-card-content>
+
+          <ion-button
+            id="load-map"
+            (click)="setOpen(true)"
+            fill="clear"
+            style="color: #ffffff"
+            >Detalles</ion-button
+          >
+          <ion-button fill="clear" style="color: #ff7d7d" id="open-action-sheet"
+            >Cancelar</ion-button
+          >
+        </ion-card>
+
+        <ion-card style="background-color: rgb(81, 23, 135); color: #ffffff">
+          <ion-card-header>
+            <ion-card-title style="color: #ffffff">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              Viaje Realizado</ion-card-title
+            >
+            <ion-card-subtitle style="color: #ffffff"
+              >Estacion M. Vicuña Mackenna</ion-card-subtitle
+            >
+          </ion-card-header>
+
+          <ion-card-content>
+            Realizaste un viaje con destino a Estacion M. Vicuña Mackenna, toca
+            en detalles para ver más información.
+          </ion-card-content>
+
+          <ion-button
+            id="load-map"
+            (click)="setOpen(true)"
+            fill="clear"
+            style="color: #ffffff"
+            >Detalles</ion-button
+          >
+        </ion-card>
+        <ion-card style="background-color: rgb(81, 23, 135); color: #ffffff">
+          <ion-card-header>
+            <ion-card-title style="color: #ffffff">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              Viaje Realizado</ion-card-title
+            >
+            <ion-card-subtitle style="color: #ffffff"
+              >Calle El Pelicano 4332</ion-card-subtitle
+            >
+          </ion-card-header>
+
+          <ion-card-content>
+            Realizaste un viaje con destino a Calle El Pelicano 4332, toca en
+            detalles para ver más información.
+          </ion-card-content>
+
+          <ion-button
+            id="load-map"
+            (click)="setOpen(true)"
+            fill="clear"
+            style="color: #ffffff"
+            >Detalles</ion-button
+          >
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-action-sheet
+    trigger="open-action-sheet"
+    header="¿Desea cancelar el viaje?"
+    [buttons]="actionSheetButtons"
+  ></ion-action-sheet>
+  <ion-modal
+    [isOpen]="isModalOpen"
+    keepContentsMounted="true"
+    [presentingElement]="presentingElement"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Detalles del viaje</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <ion-text
+                style="font-weight: bold; color: blueviolet; font-size: 30px"
+                >VIAJE SOLICITADO</ion-text
+              >
+            </ion-col>
+            <ion-col size="12">
+              <ion-text> Armando Moock 5312 </ion-text>
+            </ion-col>
+            <ion-col size="12">
+              <capacitor-google-map #map></capacitor-google-map>
+            </ion-col>
+            <ion-col size="12">
+              <ion-list>
+                <ion-item>
+                  <ion-icon
+                    name="car-sport-outline"
+                    style="font-size: 30px; color: blueviolet"
+                  ></ion-icon>
+                  <ion-label>- Conductor: Carlos F. Silva M.</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-icon
+                    name="cash-outline"
+                    style="font-size: 30px; color: blueviolet"
+                  ></ion-icon>
+                  <ion-label>- Precio: $ 3.000 CLP</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-icon
+                    name="calendar-outline"
+                    style="font-size: 30px; color: blueviolet"
+                  ></ion-icon>
+                  <ion-label>- Fecha: 02-09-2023 16:22</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="inicio" href="inicio">
+        <ion-icon name="home-outline"></ion-icon>
+        Inicio
+      </ion-tab-button>
+      <ion-tab-button tab="viajes">
+        <ion-icon name="navigate-outline"></ion-icon>
+        Viajes
+      </ion-tab-button>
+      <ion-tab-button tab="perfil">
+        <ion-icon name="person-outline"></ion-icon>
+        Perfil
+      </ion-tab-button>
+      <ion-tab-button tab="home" href="home">
+        <ion-icon name="exit-outline"></ion-icon>
+        Salir
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

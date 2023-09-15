@@ -16,7 +16,17 @@
     >
       <ion-col size="12">
         <ion-text>
-          <h4 style="color: #ffffff; text-align: center; padding-top: 80px">
+          <h2
+            style="
+              color: #ffffff;
+              text-align: center;
+              font-weight: bold;
+              padding-top: 80px;
+            "
+          >
+            AVENTONAPP
+          </h2>
+          <h4 style="color: #ffffff; text-align: center; padding-top: 0px">
             ¡Que bueno que estés aqui!
           </h4>
         </ion-text>
@@ -29,20 +39,24 @@
       </ion-col>
       <ion-col size="12">
         <ion-input
+          [(ngModel)]="usuario"
           label="Email"
           labelPlacement="stacked"
           placeholder="Ingrese su email institucional"
           style="color: #ffffff"
         ></ion-input>
         <ion-input
+          [(ngModel)]="password"
           label="Contraseña"
           labelPlacement="stacked"
           placeholder="Ingrese su contraseña"
           style="color: #ffffff"
+          type="password"
         ></ion-input>
       </ion-col>
       <ion-col size="12">
         <ion-button
+          (click)="onLogin()"
           style="color: #ffffff"
           size="default"
           fill="outline"
@@ -51,9 +65,19 @@
           <ion-icon name="log-in-outline"></ion-icon>
         </ion-button>
       </ion-col>
+      <ion-col size="12" style="color: #ffffff; text-align: center">
+        <a style="color: #ffffff; text-align: center"
+          >¿Olvidaste tu contraseña?</a
+        >
+        <br />
+        <a style="color: #ffffff; text-align: center">Crear cuenta</a>
+      </ion-col>
     </ion-row>
   </ion-grid>
-  <div id="container">
-    <capacitor-google-map id="map"></capacitor-google-map>
-  </div>
+  <ion-toast
+    [isOpen]="isOpentoast"
+    message="Usuario o contraseña incorrectos"
+    [duration]="3000"
+    (didDismiss)="setToastOpen(false)"
+  ></ion-toast>
 </ion-content>
