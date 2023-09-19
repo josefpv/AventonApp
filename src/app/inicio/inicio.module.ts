@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
-import { InicioPage } from './inicio.page';
+import { InicioPage } from './InicioPage';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, InicioPageRoutingModule],

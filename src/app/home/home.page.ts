@@ -18,6 +18,10 @@ export class HomePage {
     this.isOpentoast = value;
   }
 
+  goTo(page: string) {
+    this.router.navigate(['/' + page]);
+  }
+
   onLogin() {
     let validado = true;
 

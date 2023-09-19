@@ -1,45 +1,205 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="--background">
-    <ion-title>Registro Cliente</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-header [translucent]="true"> </ion-header>
+<!-- <ion-title size="large" style="color: blueviolet"
+  >Crea tu cuenta</ion-title>
+ -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="inicio" text="Atrás"></ion-back-button>
+      </ion-buttons>
+      <ion-title style="color: blueviolet">Crea tu cuenta</ion-title>
     </ion-toolbar>
-    
   </ion-header>
   <ion-grid>
-    <ion-row> 
-      <ion-col>
-        <ion-list>
-          <ion-item>
-            <ion-input label="Nombre"></ion-input>
-          </ion-item>
-        
-          <ion-item>
-            <ion-input label="Apellido" placeholder=""></ion-input>
-          </ion-item>
-        
-          <ion-item>
-            <ion-input label="Direccion" value=""></ion-input>
-          </ion-item>
-        
-          <ion-item>
-            <ion-input label="Telefono" value="" ></ion-input>
-          </ion-item>
-        
-          <ion-item>
-            <ion-input label="Correo Institucional" value=""></ion-input>
-          </ion-item>
-          <ion-item>
-          <ion-input label= "Fecha de nacimiento" ><ion-datetime></ion-datetime></ion-input>
-          </ion-item>
-          <ion-button>Guardar</ion-button> 
-        </ion-list>
-      </ion-col>
+    <ion-row>
+      <ion-segment
+        value="default"
+        (ionChange)="segmentChanged($event)"
+        [(ngModel)]="segment"
+      >
+        <ion-segment-button value="estudiante">
+          <ion-label>Estudiante</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="conductor">
+          <ion-label>Conductor</ion-label>
+        </ion-segment-button>
+      </ion-segment>
     </ion-row>
+
+    <ng-container
+      *ngIf="segment=='estudiante'; then estudiante; else conductor"
+    >
+    </ng-container>
+    <ng-template #estudiante>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="nombre"
+            label="Nombre"
+            labelPlacement="stacked"
+            placeholder="Ingrese su nombre"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="apellido"
+            label="Apellido"
+            labelPlacement="stacked"
+            placeholder="Ingrese su apellido"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="telefono"
+            label="Teléfono"
+            labelPlacement="stacked"
+            placeholder="Ingrese su número telefónico"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="email"
+            label="Email Institucional"
+            labelPlacement="stacked"
+            placeholder="Ingrese su email institucional"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="password"
+            label="Contraseña"
+            labelPlacement="stacked"
+            placeholder="Ingrese nueva contraseña"
+            style="color: #000000"
+            type="password"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="passwordRepite"
+            label="Repita Contraseña"
+            labelPlacement="stacked"
+            placeholder="Repita su nueva contraseña"
+            style="color: #000000"
+            type="password"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button
+            (click)="onCreateAccount()"
+            style="color: blueviolet; border-color: blueviolet"
+            size="default"
+            fill="outline"
+            expand="block"
+            >Registrar
+            <ion-icon name="checkmark-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+
+    <ng-template #conductor>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="nombre"
+            label="Nombre"
+            labelPlacement="stacked"
+            placeholder="Ingrese su nombre"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="apellido"
+            label="Apellido"
+            labelPlacement="stacked"
+            placeholder="Ingrese su apellido"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="telefono"
+            label="Teléfono"
+            labelPlacement="stacked"
+            placeholder="Ingrese su número telefónico"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="patente"
+            label="Patente"
+            labelPlacement="stacked"
+            placeholder="Ingrese patente de su vehiculo"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="marca"
+            label="Marca"
+            labelPlacement="stacked"
+            placeholder="Ingrese marca de su vehiculo"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="modelo"
+            label="Modelo"
+            labelPlacement="stacked"
+            placeholder="Ingrese modelo de su vehiculo"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="email"
+            label="Email Institucional"
+            labelPlacement="stacked"
+            placeholder="Ingrese su email institucional"
+            style="color: #000000"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="password"
+            label="Contraseña"
+            labelPlacement="stacked"
+            placeholder="Ingrese nueva contraseña"
+            style="color: #000000"
+            type="password"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input
+            [(ngModel)]="passwordRepite"
+            label="Repita Contraseña"
+            labelPlacement="stacked"
+            placeholder="Repita su nueva contraseña"
+            style="color: #000000"
+            type="password"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button
+            (click)="onCreateAccount()"
+            style="color: blueviolet; border-color: blueviolet"
+            size="default"
+            fill="outline"
+            expand="block"
+            >Registrar
+            <ion-icon name="checkmark-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-template>
   </ion-grid>
 </ion-content>

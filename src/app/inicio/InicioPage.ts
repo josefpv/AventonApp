@@ -65,7 +65,7 @@ export class InicioPage implements OnInit {
       .duration(1500)
       .iterations(Infinity)
       .direction('alternate')
-      .fromTo('background', 'blueviolet', '#2874ed');
+      .fromTo('background', 'blueviolet', '#1c2ec9');
     setTimeout(() => {
       this.animation.play();
     }, 2000);
